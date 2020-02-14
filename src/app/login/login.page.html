@@ -1,0 +1,58 @@
+<ion-header >
+  
+  <ion-toolbar color='tertiary' >    
+    <ion-buttons style="float: right;">
+      <ion-button >
+        <span style="text-align: left; 
+        cursor: pointer; color: black; 
+        font-weight: bold;
+        font-size: larger;" (click)='closeModal()'>
+          X
+        </span>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup] = 'login_form' (ngSubmit)='onSubmit()'>
+    <ion-item>
+      <ion-label position='floating' >
+        Username 
+      </ion-label>
+      <ion-input type='text' formControlName = 'username_check'> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating' >
+        Password 
+      </ion-label> 
+      <ion-input type='password' formControlName = 'password_check'> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox  color="tertiary" formControlName='remember_check' checked='true'> </ion-checkbox>
+      <ion-label style="font-size: small;" >
+        Remember me  
+      </ion-label>
+    </ion-item>
+    <div class="pad-10"></div>
+    <ion-buttons>
+      <ion-button type='submit' [disabled] = "!login_form.valid" style="background:#7044ff ;" >
+        <span style="color: white;
+        font-weight: bold; ">
+          Login 
+        </span>
+      </ion-button>
+    </ion-buttons>
+    <div style="padding-top: 50px;">
+      <p>Do not have an account? then</p>
+      <ion-buttons>
+        <ion-button (click)="openRegister()">
+          Register
+        </ion-button>
+      </ion-buttons>
+    </div>
+    
+  </form>
+</ion-content>

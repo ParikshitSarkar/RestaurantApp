@@ -1,0 +1,52 @@
+<ion-toolbar color="primary-pale">
+
+  <ion-title>Reserve table </ion-title>
+</ion-toolbar>
+
+
+<ion-content>
+
+  <form [formGroup]='reservation' (ngSubmit)='submitForm()'>
+    <ion-item>
+      <ion-label>
+        No. of guests
+      </ion-label>
+      <ion-select formControlName='guest'>
+        <ion-select-option *ngFor='let item of numOfGuests' [value]='item.actualValue'>
+          {{item.displayValue}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Smoking?
+      </ion-label>
+      <ion-toggle formControlName='smoking' [checked]='smokingFlag'></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Date-Time
+      </ion-label>
+      <ion-datetime formControlName='dateTime' displayFormat=' YYYY-MM-DD HH:mm A' pickerFormat='MMM DD, HH:mm'>
+      </ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-buttons>
+        <ion-button type='submit' [disabled]='!reservation.valid'>
+          Reserve
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </form>
+
+  <ion-item lines="none" class="ion-text-center"(click)='closeModal()' style="cursor: pointer;">
+    <ion-label color='danger' *ngIf="isAndr" >
+      Cancel
+    </ion-label>
+    <!-- <ion-icon name="close-circle" *ngIf="isAndr"></ion-icon> -->
+    <ion-label color='tertiary' *ngIf="isIos">
+      Close
+    </ion-label>
+  </ion-item>
+
+</ion-content>

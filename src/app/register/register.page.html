@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons style="float: right;">
+      <ion-button >
+        <span style="text-align: left; 
+        cursor: pointer; color: black; 
+        font-weight: bold;
+        font-size: larger;" (click)='dismissModal()'>
+          X
+        </span>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Registration Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>Your picture</ion-card-header>
+    <img [src]="image"/>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-buttons>
+            <ion-button (click)='dispPicture()'>Take picture</ion-button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col>
+          <ion-buttons>
+            <ion-button (click)='dispFromLibrary()'>Get From Library</ion-button>
+          </ion-buttons>
+        </ion-col>        
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <form [formGroup]=register_form (ngSubmit)='submitForm()'>
+    <ion-item>
+      <ion-label position='floating'>
+        First Name
+      </ion-label>
+      <ion-input type='text' formControlName='first_name'>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>
+        Last Name
+      </ion-label>
+      <ion-input type='text' formControlName='last_name'>
+        
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>
+        Username 
+      </ion-label>
+      <ion-input type='text' formControlName='username'>
+        
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>
+        Password
+      </ion-label>
+      <ion-input type='password' formControlName='password'>
+        
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>
+        Tel. number
+
+      </ion-label>
+      <ion-input type='tel' formControlName='tel_num'>
+        
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position='floating'>
+        Email
+      </ion-label>
+      <ion-input type='email' formControlName='email'>
+        
+      </ion-input>
+    </ion-item>
+    <div>
+      <ion-buttons style="    padding: 20px 20px;">
+        <ion-button type='submit' [disabled]='!register_form.valid' style="    margin: 0 auto;">
+          Register
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </form>
+</ion-content>

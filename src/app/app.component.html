@@ -1,0 +1,56 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header>        
+        <ion-toolbar color = 'tertiary'>          
+           <ion-title size = 'small' style="font-size: 20px;">
+            Ristorante Con Fusio
+           </ion-title>         
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="background-pale">
+        <ion-list style="margin-top: -10px;">
+          <ion-list-header style="background-color: #9575CD;">              
+              <ion-grid>
+                <ion-row>
+                  <ion-col size='4'>
+                    <ion-thumbnail item-left style="margin-top: 16px;">
+                      <img src="assets/images/logo.png" />
+                    </ion-thumbnail>
+                  </ion-col>
+                  <ion-col size='8'>
+                    <h6 style="color: white;">Ristorante Con Fusio</h6>
+                  </ion-col>                  
+                </ion-row>
+              </ion-grid>
+          </ion-list-header>
+          
+          
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" (click)="openPage(p)">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>           
+          </ion-menu-toggle>
+          <div class="pad-10"></div>
+          <ion-buttons (click) = "openReserve()">
+            <ion-button color='dark'>
+              <ion-icon item-left name = 'restaurant'>
+      
+              </ion-icon>
+              Reserve table 
+            </ion-button>
+          </ion-buttons>
+
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+
+    
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

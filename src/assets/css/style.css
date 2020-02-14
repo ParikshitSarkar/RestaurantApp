@@ -1,0 +1,56 @@
+.width_95{
+    width: 95%;
+}
+
+.ContactTheme{
+    background-color: #7044ff;
+}
+.ContactTxt{
+    color: #7044ff;
+}
+.DispFlex{
+    display: flex;
+}
+.NavbarTitle{
+    color: white;
+}
+.pb-0{
+    padding-bottom: 0px;
+}
+
+.pb-10{
+    padding-bottom: 10px;
+}
+.BoldTxt{
+    font-weight: bold !important;
+}
+.pad-10{
+    padding: 10px;
+}
+
+.shadow-depth-8 {
+    box-shadow: 0 1px 0px 0 rgba(0,0,0,.2),0 3px 17px 0 rgba(0,0,0,.19)!important;
+    margin-bottom: 10px;
+  }
+
+.grid_box_shadow{
+    box-shadow: 0 22px 59px 0 rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+}
+
+.img_fill_col{
+    width: -webkit-fill-available;
+}
+
+.mb_5{
+    margin-bottom: 5px;
+}
+.mt_5{
+    margin-top: 5px;    
+
+}
+.pad_5{
+    padding: 5px;
+}
+
+  

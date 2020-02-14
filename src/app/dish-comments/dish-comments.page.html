@@ -1,0 +1,45 @@
+
+<ion-toolbar >
+  
+  <ion-title>Comments </ion-title>
+</ion-toolbar>
+
+<ion-content>
+
+  <form [formGroup] = 'dishComments' (ngSubmit)='submitDishComment()'>
+    <ion-toolbar>
+      <ion-title size="small" 
+      style="text-align: start;
+       padding-bottom: 0px;">Add a rating : </ion-title>
+    </ion-toolbar>
+    <ion-item>
+      <ion-range  formControlName = 'rating' min = '0' max = '5' snaps="true">
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">5</ion-label>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-label>Author name: </ion-label>
+      <ion-input formControlName ='author' type = 'text'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Add a comment: </ion-label>
+      <ion-textarea formControlName = 'comment' clearOnEdit='true'></ion-textarea>
+    </ion-item>    
+    <ion-item>
+      <ion-buttons>
+        <ion-button type = 'submit' [disabled]='!dishComments.valid'>
+          Post Comment 
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </form>
+
+  <ion-item lines="none"  class="ion-text-center"  (click)='closeModal()' style="cursor: pointer;">
+    <ion-label color='danger' *ngIf="isIos">
+      Cancel
+    </ion-label>
+    <ion-icon name="md-close" *ngIf="isAndr"></ion-icon>
+  </ion-item>
+  
+</ion-content>

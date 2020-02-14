@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color='success'>
+      <button slot="start" style="background-color: #10dc60;">
+        <ion-menu-button  style="color: white;"></ion-menu-button>
+      </button>
+      <ion-title class="NavbarTitle">Favourites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf='favList'>
+    <ion-list>
+      <ion-item-sliding *ngFor = 'let fav of favList'>
+        <ion-item style="display: flex;">
+          <ion-col size='2'>
+            <ion-avatar>
+              <img src="{{BaseURL + fav.image}}">
+            </ion-avatar>
+          </ion-col>
+          <ion-col size='4'>
+            <h5>
+              {{fav.name}}
+            </h5>
+          </ion-col>
+          <ion-col  size='6'>
+            <p>
+              {{fav.description}}
+            </p>
+          </ion-col>
+          
+        </ion-item>
+        <ion-item-options side='start'>
+          <button color='danger' (click)='showAlertBeforeDltDish(fav.id)'>
+            <ion-icon name='trash'></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <div [hidden]='favList || errMsg'>
+    <ion-spinner></ion-spinner>
+    <h4>Loading... Please wait</h4>
+  </div>
+  <div *ngIf = 'errMsg'>
+    <h2>Message:</h2>
+    <h4>{{errMsg}}</h4>
+  </div>
+</ion-content>

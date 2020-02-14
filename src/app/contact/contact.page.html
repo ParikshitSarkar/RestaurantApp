@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color='tertiary'>
+      <button slot="start" class="ContactTheme">
+        <ion-menu-button class="NavbarTitle"></ion-menu-button>
+      </button>
+      <ion-title class="NavbarTitle">Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header class="ContactTxt ">
+        Location Information
+    </ion-card-header>
+    <ion-card-content>
+      <div >
+        <ion-row>
+          121, Clear Water Bay Road
+        </ion-row>
+        <ion-row>
+          Clear Water Bay, Kowloon
+        </ion-row>
+        <ion-row>
+          HONG KONG
+        </ion-row>
+      </div>      
+      <ion-row>
+        <ion-icon name="md-call"></ion-icon> 
+        <p>
+          : +852 1234 5678
+        </p> 
+      </ion-row>
+      <ion-row>
+        <ion-icon name="md-print"></ion-icon> 
+        <p>
+          : +852 8765 4321
+        </p> 
+      </ion-row>
+      <ion-row>
+        <ion-icon name="md-mail"></ion-icon> 
+        <p>
+          : confusion@food.net
+        </p> 
+      </ion-row>         
+    </ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col  class="ContactTxt" (click)='callRestaurant()' style="cursor: pointer;"> 
+          <ion-icon name='md-call'></ion-icon> 
+            Call 
+        </ion-col>
+        <ion-col class="ContactTxt" (click)='sendEmail()' style="cursor: pointer;">
+          <ion-icon name='md-mail'></ion-icon>
+            Email 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

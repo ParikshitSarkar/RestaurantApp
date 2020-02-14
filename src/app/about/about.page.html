@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color = "tertiary">
+      <button slot='start' class="ContactTheme">
+        <ion-menu-button style="color: white;" ></ion-menu-button>
+      </button>
+      <ion-title>
+        About Us
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header class="ContactTxt pb-0">
+      <h6>
+        Our History
+      </h6>
+    </ion-card-header>
+    <ion-card-content>
+      {{AboutUsHist}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf = 'leaders'>
+    <ion-card-header class="ContactTxt pb-0">
+      <h6>
+        Corporate Leadership
+      </h6>
+    </ion-card-header>
+    <ion-card-content class="DispFlex" *ngFor = 'let leader of leaders'>
+      <ion-col size='4'>
+        <ion-avatar>
+          <img src="{{BaseURL + leader.image}}" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col size='8'>
+          <h2 class="BoldTxt">
+            {{leader.name}}
+          </h2>
+          <h4 class="BoldTxt">
+            {{leader.designation}}
+          </h4>      
+        <p>
+          {{leader.description}}
+        </p>
+      </ion-col>
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-card [hidden] = 'leaders || errMsg'>
+    <ion-spinner></ion-spinner>
+    <h4>Loading ...Please wait</h4>
+  </ion-card>
+  <ion-card *ngIf = 'errMsg'>
+    <h2>
+      Error: 
+    </h2>
+    <h4>
+      {{errMsg}}
+    </h4>
+  </ion-card>
+</ion-content>
