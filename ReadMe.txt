@@ -1,3 +1,12 @@
+To emulate a fake rest api call from static json file, install json-server module with commmand:
+
+1. run npm i json-server
+2. create a folder named json-server 
+3. create a db.json file here which contains the json data that is to be served
+3. cd into json-server folder 
+4. run json-server --watch db.json 
+
+
 Basic Git commands 
 
 
